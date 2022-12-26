@@ -10,12 +10,12 @@ import Foundation
 
 struct Question {
     let text: String
-    let answer: [String]
-    let theAnswer: String
+    let choices: [String]
+    let answer: String
     
     init(q: String, a: [String], correctAnswer: String) {
         text = q
-        answer = a
-        theAnswer = correctAnswer
+        choices = a
+        answer = correctAnswer
     }
 }
