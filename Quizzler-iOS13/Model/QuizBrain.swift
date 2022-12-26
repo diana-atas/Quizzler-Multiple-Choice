@@ -28,4 +28,8 @@ struct QuizBrain {
     func getQuestion() -> String {
         return quiz[questionNumber].text
     }
+    
+    func getChoices() -> [String] {
+        return quiz[questionNumber].choices
+    }
 }

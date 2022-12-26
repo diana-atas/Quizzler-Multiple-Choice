@@ -29,6 +29,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         questionLabel.text = quizBrain.getQuestion()
+        let choices = quizBrain.getChoices()
+        answerA.setTitle(choices[0], for: .normal)
+        answerB.setTitle(choices[1], for: .normal)
+        answerC.setTitle(choices[2], for: .normal)
+        
     }
 
     @IBAction func answerPressed(_ sender: UIButton) {
