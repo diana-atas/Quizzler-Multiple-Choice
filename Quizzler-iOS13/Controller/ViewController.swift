@@ -27,7 +27,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        updateUI()
         
+        
+    }
+
+    @IBAction func answerPressed(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        print("userAnswer: \(userAnswer)")
+        
+        quizBrain.nextQuestion()
+        updateUI()
+    }
+    
+    func updateUI(){
         questionLabel.text = quizBrain.getQuestion()
         let choices = quizBrain.getChoices()
         answerA.setTitle(choices[0], for: .normal)
@@ -35,12 +48,5 @@ class ViewController: UIViewController {
         answerC.setTitle(choices[2], for: .normal)
         
     }
-
-    @IBAction func answerPressed(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
-        print("userAnswer: \(userAnswer)")
-    }
-    
-
 }
 
