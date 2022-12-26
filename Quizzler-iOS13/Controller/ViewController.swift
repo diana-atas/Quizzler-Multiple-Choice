@@ -22,21 +22,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerB: UIButton!
     @IBOutlet weak var answerC: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
-    
     @IBOutlet weak var progressBar: UIProgressView!
+    
     var quizBrain = QuizBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         updateUI()
-        
         
     }
     
     @IBAction func answerPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-        //        print("userAnswer: \(userAnswer)")
         
         let userGotItRight = quizBrain.checkAnswer(userAnswer: userAnswer)
         
@@ -47,13 +45,16 @@ class ViewController: UIViewController {
             print("That's incorrect!")
             sender.backgroundColor = UIColor.red
         }
+        
         quizBrain.nextQuestion()
+        
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
     
     @objc func updateUI(){
         questionLabel.text = quizBrain.getQuestion()
         progressBar.progress = quizBrain.getProgress()
+        
         let choices = quizBrain.getChoices()
         answerA.setTitle(choices[0], for: .normal)
         answerB.setTitle(choices[1], for: .normal)
@@ -64,4 +65,3 @@ class ViewController: UIViewController {
         answerC.backgroundColor = UIColor.clear
     }
 }
-
