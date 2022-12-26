@@ -11,6 +11,7 @@
 //  replace Question Text with actual question
 //  check if user's answer is correct
 //  go to the next question
+//  fix progress bar
 //  add score
 
 import UIKit
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerC: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
     
+    @IBOutlet weak var progressBar: UIProgressView!
     var quizBrain = QuizBrain()
     
     override func viewDidLoad() {
@@ -51,6 +53,7 @@ class ViewController: UIViewController {
     
     @objc func updateUI(){
         questionLabel.text = quizBrain.getQuestion()
+        progressBar.progress = quizBrain.getProgress()
         let choices = quizBrain.getChoices()
         answerA.setTitle(choices[0], for: .normal)
         answerB.setTitle(choices[1], for: .normal)

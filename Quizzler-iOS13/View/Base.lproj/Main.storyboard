@@ -99,6 +99,7 @@
                         <outlet property="answerA" destination="93I-IF-0o9" id="oDx-lo-rNZ"/>
                         <outlet property="answerB" destination="oVw-Hl-IRe" id="qhF-eo-jYO"/>
                         <outlet property="answerC" destination="tbn-vQ-GyC" id="dEA-X7-nb0"/>
+                        <outlet property="progressBar" destination="TXm-qh-7Xg" id="h6l-Wj-oyN"/>
                         <outlet property="questionLabel" destination="rSI-li-mhO" id="KFa-lz-k9b"/>
                     </connections>
                 </viewController>
