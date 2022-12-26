@@ -33,6 +33,14 @@ struct QuizBrain {
         return quiz[questionNumber].choices
     }
     
+    func checkAnswer(userAnswer: String) -> Bool {
+        if (userAnswer == quiz[questionNumber].answer ) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     mutating func nextQuestion() {
         if questionNumber + 1 < quiz.count {
             questionNumber += 1

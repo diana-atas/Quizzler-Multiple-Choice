@@ -34,7 +34,15 @@ class ViewController: UIViewController {
 
     @IBAction func answerPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-        print("userAnswer: \(userAnswer)")
+//        print("userAnswer: \(userAnswer)")
+        
+        let userGotItRight = quizBrain.checkAnswer(userAnswer: userAnswer)
+        
+        if userGotItRight {
+            print("Correct!")
+        } else {
+            print("That's incorrect!")
+        }
         
         quizBrain.nextQuestion()
         updateUI()
