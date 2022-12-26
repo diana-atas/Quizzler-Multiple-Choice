@@ -31,30 +31,34 @@ class ViewController: UIViewController {
         
         
     }
-
+    
     @IBAction func answerPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-//        print("userAnswer: \(userAnswer)")
+        //        print("userAnswer: \(userAnswer)")
         
         let userGotItRight = quizBrain.checkAnswer(userAnswer: userAnswer)
         
         if userGotItRight {
             print("Correct!")
+            sender.backgroundColor = UIColor.green
         } else {
             print("That's incorrect!")
+            sender.backgroundColor = UIColor.red
         }
-        
         quizBrain.nextQuestion()
-        updateUI()
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
     
-    func updateUI(){
+    @objc func updateUI(){
         questionLabel.text = quizBrain.getQuestion()
         let choices = quizBrain.getChoices()
         answerA.setTitle(choices[0], for: .normal)
         answerB.setTitle(choices[1], for: .normal)
         answerC.setTitle(choices[2], for: .normal)
         
+        answerA.backgroundColor = UIColor.clear
+        answerB.backgroundColor = UIColor.clear
+        answerC.backgroundColor = UIColor.clear
     }
 }
 
